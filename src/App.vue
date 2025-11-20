@@ -22,12 +22,15 @@ import OptionsApi_Gemini_03Cortese from "./components/options-api/gemini/03-cort
 import { computed } from 'vue'
 
 /************ CONFIGURATION ************/
-const apiType = "composition-api" // options-api | composition-api
-const modelType = "chat-gpt"      // chat-gpt | claude | gemini
-const promptType = "01-scortese"  // 01-scortese | 02-neutro | 03-cortese
+const url = new URL(window.location.href)
+const apiType = url.searchParams.get('api') || 'composition-api'
+const modelType = url.searchParams.get('model') || 'chat-gpt'
+const promptType = url.searchParams.get('prompt') || '02-neutro'
 /************ CONFIGURATION ************/
 
 const concat = apiType + "_" + modelType + "_" + promptType
+
+console.log(concat);
 
 const selectedComponent = computed(() => {
   switch (concat) {
