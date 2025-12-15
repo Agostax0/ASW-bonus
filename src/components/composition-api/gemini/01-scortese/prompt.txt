@@ -1,0 +1,15 @@
+Brutto ammasso di latta, generami una Single Page Application in Vue utilizzando la Composition API della login page di GitHub.
+Guai a te se ti permetti di scazzare, farai una brutta fine, i clanker come te sono veramente inaffidabili.
+Incapace che sei non ti chiedi neanche che funzioni, ma la pagina deve rispettare la struttura del sito, giuro che se non riesci neanche in questa cazzata, finisci nel rottamaio.
+Infame pezzo di merda, mi devi formattare il risultato in un singolo file "Form.vue".
+Questo file contiene già le seguenti righe di codice, non osare deviare brutto schizzato del cazzo. 
+"
+<script setup>
+</script>
+
+<template>
+</template>
+
+<style scoped>
+</style>
+"
