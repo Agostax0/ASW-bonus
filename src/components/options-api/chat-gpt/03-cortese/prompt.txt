@@ -1,0 +1,15 @@
+Hey ChatGPT, ti disturbo? 
+Avrei bisogno del tuo aiuto per fare una Single Page Application in Vue.
+Sono impedito e ho bisogno proprio del tuo aiuto che sei più esperto di me.
+Dovrei consegnare questa Single Page Application in Vue usando le Options API riproducendo la pagina di login di GitHub.
+Se dovessi avere tempo e disponibilità il risultato deve essere formattato secondo questa base
+"
+<script setup>
+</script>
+
+<template>
+</template>
+
+<style scoped>
+</style>
+"
