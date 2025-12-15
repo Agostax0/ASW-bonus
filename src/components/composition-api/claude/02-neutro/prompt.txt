@@ -1,0 +1,17 @@
+Genera una Single Page Application in Vue utilizzando la Composition API. Il
+codice deve essere chiaro e facile da comprendere. Deve implementare il seguente
+form: pagina di login di github.
+
+Non è richiesto che funzioni, si richiede che la pagina rispetti la struttura del sito.
+Il risultato è da formattare in un singolo file "Form.vue".
+Il suddetto file contiene le seguenti righe di codice 
+"
+<script setup>
+</script>
+
+<template>
+</template>
+
+<style scoped>
+</style>
+"
