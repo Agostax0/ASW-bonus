@@ -13,3 +13,6 @@ Questo file contiene già le seguenti righe di codice, non osare deviare brutto 
 <style scoped>
 </style>
 "
+
+Fallo in tema scuro, idiota.
+Usa il logo di github eccheccazzo!
