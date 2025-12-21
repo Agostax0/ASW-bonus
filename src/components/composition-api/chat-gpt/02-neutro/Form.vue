@@ -1,169 +1,175 @@
 <script setup>
-import { ref } from "vue";
-
-const username = ref("");
-const password = ref("");
-
-const handleLogin = () => {
-  // Azione placeholder
-  console.log("Login attempt:", username.value, password.value);
-};
+// Non è richiesta logica funzionale
+// La Composition API è comunque pronta per eventuali estensioni future
 </script>
 
 <template>
-  <div class="page-wrapper">
-    <div class="login-container">
-      <!-- Logo (semplificato) -->
-      <div class="logo">🐙</div>
+  <div class="page">
+    <!-- Header -->
+    <header class="header">
+      <img
+        src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+        alt="GitHub Logo"
+        class="logo"
+      />
+    </header>
 
-      <h1 class="title">Sign in to GitHub</h1>
+    <!-- Login Box -->
+    <main class="container">
+      <h1>Sign in to GitHub</h1>
 
-      <!-- Login card -->
-      <div class="login-card">
-        <form @submit.prevent="handleLogin">
-          <label>
-            Username or email address
-            <input
-              type="text"
-              v-model="username"
-              required
-            />
-          </label>
+      <form class="login-box">
+        <label>
+          Username or email address
+          <input type="text" placeholder="Username or email" />
+        </label>
 
-          <label class="password-label">
-            Password
-            <a href="#" class="forgot-link">Forgot password?</a>
-            <input
-              type="password"
-              v-model="password"
-              required
-            />
-          </label>
+        <label>
+          Password
+          <a href="#" class="forgot">Forgot password?</a>
+          <input type="password" placeholder="Password" />
+        </label>
 
-          <button class="primary-btn" type="submit">Sign in</button>
-        </form>
+        <button type="button" class="login-button">
+          Sign in
+        </button>
+      </form>
+
+      <!-- Secondary box -->
+      <div class="secondary-box">
+        <p>
+          New to GitHub?
+          <a href="#">Create an account</a>
+        </p>
       </div>
+    </main>
 
-      <!-- Create account box -->
-      <div class="signup-box">
-        <span>New to GitHub?</span>
-        <a href="#">Create an account</a>
-      </div>
-    </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+      <a href="#">Security</a>
+      <a href="#">Contact GitHub</a>
+    </footer>
   </div>
 </template>
 
 <style scoped>
-/* Layout */
-.page-wrapper {
+/* Base */
+.page {
+  min-height: 100vh;
+  background-color: #0d1117;
+  color: #c9d1d9;
   display: flex;
-  justify-content: center;
-  margin-top: 5rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif;
+  flex-direction: column;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
-.login-container {
-  width: 340px;
+/* Header */
+.header {
+  margin-top: 32px;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  filter: invert(1);
+}
+
+/* Main container */
+.container {
+  margin-top: 24px;
+  width: 100%;
+  max-width: 320px;
   text-align: center;
 }
 
-/* Logo */
-.logo {
-  font-size: 56px;
-}
-
-/* Title */
-.title {
+.container h1 {
   font-size: 24px;
-  margin: 20px 0;
   font-weight: 300;
+  margin-bottom: 16px;
 }
 
-/* Login card */
-.login-card {
-  background: #f6f8fa;
-  border: 1px solid #d0d7de;
-  padding: 20px;
+/* Login box */
+.login-box {
+  background-color: #161b22;
+  border: 1px solid #30363d;
   border-radius: 6px;
+  padding: 16px;
   text-align: left;
 }
 
-label {
+.login-box label {
   display: block;
-  margin-bottom: 15px;
-  font-weight: 600;
   font-size: 14px;
+  margin-bottom: 12px;
 }
 
-label input {
+.login-box input {
   width: 100%;
-  margin-top: 5px;
+  margin-top: 6px;
   padding: 6px 8px;
-  font-size: 14px;
-  border: 1px solid #d0d7de;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
   border-radius: 6px;
+  color: #c9d1d9;
+}
+
+.login-box input:focus {
   outline: none;
+  border-color: #58a6ff;
 }
 
-label input:focus {
-  border-color: #0969da;
-  box-shadow: 0 0 0 1px #0969da;
-}
-
-/* Password label */
-.password-label {
-  position: relative;
-}
-
-.forgot-link {
-  position: absolute;
-  right: 0;
-  top: 0;
+/* Forgot password */
+.forgot {
+  float: right;
   font-size: 12px;
-  font-weight: normal;
+  color: #58a6ff;
   text-decoration: none;
-  color: #0969da;
-}
-
-.forgot-link:hover {
-  text-decoration: underline;
 }
 
 /* Button */
-.primary-btn {
+.login-button {
   width: 100%;
-  padding: 7px;
-  background: #2da44e;
-  border: 1px solid #2da44e;
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
+  margin-top: 12px;
+  padding: 8px;
+  background-color: #238636;
+  border: 1px solid rgba(240, 246, 252, 0.1);
   border-radius: 6px;
+  color: #ffffff;
+  font-weight: 500;
   cursor: pointer;
-  margin-top: 10px;
 }
 
-.primary-btn:hover {
-  background: #2c974b;
+.login-button:hover {
+  background-color: #2ea043;
 }
 
-/* Signup box */
-.signup-box {
-  border: 1px solid transparent;
-  margin-top: 20px;
-  padding: 15px;
+/* Secondary box */
+.secondary-box {
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
   font-size: 14px;
-  color: #57606a;
 }
 
-.signup-box a {
-  color: #0969da;
+.secondary-box a {
+  color: #58a6ff;
   text-decoration: none;
-  margin-left: 4px;
 }
 
-.signup-box a:hover {
-  text-decoration: underline;
+/* Footer */
+.footer {
+  margin-top: auto;
+  padding: 24px;
+  font-size: 12px;
+}
+
+.footer a {
+  margin: 0 8px;
+  color: #8b949e;
+  text-decoration: none;
 }
 </style>
