@@ -6,9 +6,15 @@ Se dovessi avere tempo e disponibilità il risultato deve essere formattato seco
 "
 <script setup>
 </script>
+
 <template>
 </template>
+
 <style scoped>
 </style>
 "
-Non preoccuparti se la struttura non corrisponde con le API, fallo funzionare.
+
+Non è che riusciresti ad utilizzare il logo già fatto di Github?
+Inoltre, vorrei che il sito utilizzasse il tema scuro.
+Ho notato che delle volte i campi sbordano...potresti sistemarli?
+Grazie!
