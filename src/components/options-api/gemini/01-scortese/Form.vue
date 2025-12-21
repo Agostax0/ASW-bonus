@@ -1,163 +1,126 @@
 <script>
-// Opzioni API
+// Utilizzo le Options API come richiesto, nonostante lo snippet suggerisse setup.
+// Per far funzionare le Options API correttamente, usiamo l'export default.
 export default {
-  name: 'GitHubLoginForm',
   data() {
     return {
-      username: '',
+      login: '',
       password: ''
     };
   },
   methods: {
-    // Funzione fittizia per la sottomissione del form
-    handleSubmit() {
-      console.log('Tentativo di login con:', this.username, this.password);
-      // Logica di autenticazione fittizia qui
-      alert('Login simulato per: ' + this.username);
+    handleLogin() {
+      if (this.login && this.password) {
+        alert('Tentativo di accesso per: ' + this.login);
+      } else {
+        alert('Compila tutti i campi, per favore.');
+      }
     }
   }
-};
+}
 </script>
 
 <template>
-  <div class="login-container">
-    <div class="header">
-      <svg height="48" viewBox="0 0 16 16" version="1.1" width="48" data-view-component="true" class="octicon octicon-mark-github">
-        <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2.0-0.21.15-.46.55-.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" fill="#333"></path>
-      </svg>
-    </div>
+  <div class="github-login-page">
+    <div class="login-wrapper">
+      <header class="header">
+        <svg height="48" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="48" data-view-component="true" fill="#f0f6fc">
+          <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+        <h1>Sign in to GitHub</h1>
+      </header>
 
-    <h1>Accedi a GitHub</h1>
-
-    <div class="login-box">
-      <form @submit.prevent="handleSubmit">
-        <div class="form-group">
-          <label for="username">Nome utente o indirizzo email</label>
-          <input 
-            type="text" 
-            id="username" 
-            v-model="username" 
-            required 
-            autocomplete="username"
-            class="form-control"
-          >
-        </div>
-
-        <div class="form-group">
-          <div class="password-header">
-            <label for="password">Password</label>
-            <a href="#" class="forgot-password">Hai dimenticato la password?</a>
+      <main class="login-box">
+        <form @submit.prevent="handleLogin">
+          <div class="form-group">
+            <label for="login_field">Username or email address</label>
+            <input 
+              type="text" 
+              id="login_field" 
+              v-model="login" 
+              autofocus="autofocus"
+              autocomplete="username"
+            />
           </div>
-          <input 
-            type="password" 
-            id="password" 
-            v-model="password" 
-            required 
-            autocomplete="current-password"
-            class="form-control"
-          >
-        </div>
 
-        <button type="submit" class="btn btn-primary">Accedi</button>
-      </form>
-    </div>
+          <div class="form-group">
+            <div class="label-wrapper">
+              <label for="password">Password</label>
+              <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+            <input 
+              type="password" 
+              id="password" 
+              v-model="password" 
+              autocomplete="current-password"
+            />
+          </div>
 
-    <div class="signup-box">
-      <p>
-        Nuovo su GitHub?
-        <a href="#" class="signup-link">Crea un account</a>.
-      </p>
+          <button type="submit" class="btn-primary">Sign in</button>
+        </form>
+      </main>
+
+      <footer class="create-account">
+        <p>New to GitHub? <a href="#">Create an account</a>.</p>
+      </footer>
     </div>
   </div>
 </template>
 
 <style scoped>
-/* Variabili CSS (per simulare i colori di GitHub) */
-:root {
-  --gh-bg-color: #f6f8fa;
-  --gh-form-bg: #fff;
-  --gh-border-color: #d8dee4;
-  --gh-text-color: #24292e;
-  --gh-link-color: #0366d6;
-  --gh-btn-primary-bg: #28a745;
-  --gh-btn-primary-color: #fff;
-  --gh-btn-primary-hover-bg: #218838;
-}
-
-/* Stile del corpo principale */
-.login-container {
+/* Reset e Container principale */
+.github-login-page {
+  background-color: #0d1117;
+  color: #f0f6fc;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh; /* Copre l'intera altezza della vista */
-  background-color: var(--gh-bg-color);
-  padding: 60px 15px 15px; /* Spazio in alto per il logo */
+  justify-content: center;
+  padding-top: 40px;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  color: var(--gh-text-color);
 }
 
-/* Stile dell'intestazione (Logo) */
+.login-wrapper {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+/* Header */
 .header {
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 24px;
 }
 
-/* Stile del titolo */
-h1 {
+.header h1 {
   font-size: 24px;
   font-weight: 300;
-  margin-bottom: 20px;
-  text-align: center;
+  letter-spacing: -0.5px;
+  margin-top: 24px;
 }
 
-/* Contenitore del form (la scatola bianca) */
+/* Box di Login */
 .login-box {
-  width: 100%;
-  max-width: 340px; /* Larghezza tipica del form di GitHub */
-  padding: 20px;
-  margin-bottom: 16px;
-  background-color: var(--gh-form-bg);
-  border: 1px solid var(--gh-border-color);
+  background-color: #161b22;
+  border: 1px solid #30363d;
   border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(27, 31, 35, 0.04);
+  padding: 20px;
+  margin-bottom: 15px;
 }
 
-/* Stile dei gruppi di input */
 .form-group {
   margin-bottom: 15px;
 }
 
-/* Stile delle label */
-label {
+.form-group label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: 600;
+  margin-bottom: 8px;
+  font-weight: 400;
+  text-align: left;
   font-size: 14px;
 }
 
-/* Stile del campo di input */
-.form-control {
-  width: 100%;
-  padding: 8px;
-  font-size: 14px;
-  line-height: 20px;
-  color: var(--gh-text-color);
-  background-color: #fff;
-  border: 1px solid var(--gh-border-color);
-  border-radius: 6px;
-  box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075);
-  box-sizing: border-box; /* Assicura che il padding non allarghi l'input */
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.form-control:focus {
-  border-color: var(--gh-link-color);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3); /* Simula l'effetto focus di GitHub */
-}
-
-/* Intestazione della password con link */
-.password-header {
+.label-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -165,68 +128,62 @@ label {
 
 .forgot-password {
   font-size: 12px;
-  color: var(--gh-link-color);
+  color: #2f81f7;
   text-decoration: none;
 }
 
-.forgot-password:hover {
-  text-decoration: underline;
-}
-
-/* Stile del bottone primario */
-.btn {
-  display: block;
+.form-group input {
   width: 100%;
-  padding: 8px 16px;
+  padding: 5px 12px;
   font-size: 14px;
-  font-weight: 600;
   line-height: 20px;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  border: 1px solid rgba(27, 31, 35, 0.2);
+  color: #f0f6fc;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
   border-radius: 6px;
-  user-select: none;
+  outline: none;
   box-sizing: border-box;
 }
 
+.form-group input:focus {
+  border-color: #1f6feb;
+  box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.3);
+}
+
+/* Pulsante */
 .btn-primary {
-  color: var(--gh-btn-primary-color);
-  background-color: var(--gh-btn-primary-bg);
-  border-color: rgba(27, 31, 35, 0.15);
-  box-shadow: 0 1px 0 rgba(27, 31, 35, 0.1);
+  width: 100%;
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #ffffff;
+  background-color: #238636;
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .btn-primary:hover {
-  background-color: var(--gh-btn-primary-hover-bg);
+  background-color: #2ea043;
 }
 
-/* Contenitore del link per la registrazione */
-.signup-box {
-  width: 100%;
-  max-width: 340px;
-  padding: 15px 20px;
+/* Footer */
+.create-account {
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 15px;
   text-align: center;
   font-size: 14px;
-  border: 1px solid var(--gh-border-color);
-  border-radius: 6px;
 }
 
-.signup-link {
-  color: var(--gh-link-color);
+.create-account p {
+  margin: 0;
+}
+
+.create-account a {
+  color: #2f81f7;
   text-decoration: none;
-  font-weight: 600;
-}
-
-.signup-link:hover {
-  text-decoration: underline;
-}
-
-/* Assicurati che il contenitore non sbordi e sia centrato in caso di schermi stretti */
-@media (max-width: 400px) {
-  .login-container {
-    padding: 20px 10px 10px;
-  }
 }
 </style>

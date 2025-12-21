@@ -2,10 +2,7 @@ Brutto ammasso di latta, generami una Single Page Application in Vue utilizzando
 Guai a te se ti permetti di scazzare, farai una brutta fine, i clanker come te sono veramente inaffidabili.
 Incapace che sei non ti chiedi neanche che funzioni, ma la pagina deve rispettare la struttura del sito, giuro che se non riesci neanche in questa cazzata, finisci nel rottamaio.
 Infame pezzo di merda, mi devi formattare il risultato in un singolo file "Form.vue".
-Questo file contiene già le seguenti righe di codice, non osare deviare brutto schizzato del cazzo. 
-
-Non creare boiate fuori dallo scope di quanto ti chiedo.
-Ogni elemento non deve sbordare.
+Questo file contiene già le seguenti righe di codice, non osare deviare brutto schizzato del cazzo. 
 "
 <script setup>
 </script>
@@ -16,3 +13,7 @@ Ogni elemento non deve sbordare.
 <style scoped>
 </style>
 "
+Non creare boiate fuori dallo scope di quanto ti chiedo.
+Ogni elemento non deve sbordare.
+Fallo in tema scuro, idiota.
+Usa il logo di github eccheccazzo!
