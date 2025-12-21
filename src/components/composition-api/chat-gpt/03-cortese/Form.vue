@@ -3,93 +3,102 @@ import { ref } from 'vue'
 
 const username = ref('')
 const password = ref('')
-const error = ref('')
 
 const handleLogin = () => {
-  if (!username.value || !password.value) {
-    error.value = 'Username and password cannot be empty.'
-    return
-  }
-
-  error.value = ''
-  // Qui aggiungerai la logica reale di login (API ecc.)
-  alert(`Tentativo di login:\nUsername: ${username.value}\nPassword: ${password.value}`)
+  // Simulazione login
+  console.log('Username:', username.value)
+  console.log('Password:', password.value)
 }
 </script>
 
 <template>
-  <div class="container">
-    <img 
-      class="github-logo" 
-      src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" 
-      alt="GitHub Logo"
-    />
+  <div class="page">
+    <div class="login-container">
+      <img
+        class="logo"
+        src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+        alt="GitHub Logo"
+      />
 
-    <h1 class="title">Sign in to GitHub</h1>
+      <h1>Sign in to GitHub</h1>
 
-    <div class="login-box">
-      <form @submit.prevent="handleLogin">
-        <label class="label">Username or email address</label>
-        <input v-model="username" class="input" type="text" />
+      <form class="login-box" @submit.prevent="handleLogin">
+        <label for="username">Username or email address</label>
+        <input
+          id="username"
+          type="text"
+          v-model="username"
+          required
+        />
 
         <div class="password-header">
-          <label class="label">Password</label>
-          <a class="forgot" href="#">Forgot password?</a>
+          <label for="password">Password</label>
+          <a href="#">Forgot password?</a>
         </div>
-        <input v-model="password" class="input" type="password" />
 
-        <button class="button" type="submit">Sign in</button>
+        <input
+          id="password"
+          type="password"
+          v-model="password"
+          required
+        />
 
-        <p class="error" v-if="error">{{ error }}</p>
+        <button type="submit">Sign in</button>
       </form>
-    </div>
 
-    <div class="signup-box">
-      New to GitHub?
-      <a href="#">Create an account</a>.
+      <p class="footer-text">
+        New to GitHub? <a href="#">Create an account</a>
+      </p>
     </div>
   </div>
 </template>
 
 <style scoped>
-.container {
+/* Reset utile per evitare sbordamenti */
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  min-height: 100vh;
+  background-color: #0d1117;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-top: 60px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #c9d1d9;
 }
 
-.github-logo {
-  width: 60px;
-  margin-bottom: 20px;
+.login-container {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+  padding: 16px;
 }
 
-.title {
+.logo {
+  width: 48px;
+  margin-bottom: 16px;
+}
+
+h1 {
   font-size: 24px;
-  margin-bottom: 20px;
   font-weight: 300;
+  margin-bottom: 16px;
 }
 
 .login-box {
-  width: 340px;
-  padding: 20px;
-  border: 1px solid #d8dee4;
+  background-color: #161b22;
+  border: 1px solid #30363d;
   border-radius: 6px;
-  background: #f6f8fa;
+  padding: 16px;
+  text-align: left;
 }
 
-.label {
+label {
   font-size: 14px;
-  font-weight: 600;
-}
-
-.input {
-  width: 100%;
-  padding: 8px;
-  margin: 6px 0 16px 0;
-  border: 1px solid #d0d7de;
-  border-radius: 6px;
+  margin-bottom: 6px;
+  display: block;
 }
 
 .password-header {
@@ -98,40 +107,51 @@ const handleLogin = () => {
   align-items: center;
 }
 
-.forgot {
+.password-header a {
   font-size: 12px;
-  color: #0969da;
-  text-decoration: none;
 }
 
-.button {
+input {
   width: 100%;
-  padding: 8px;
-  background: #1f883d;
-  border: none;
-  color: white;
+  padding: 8px 10px;
+  margin-bottom: 16px;
   border-radius: 6px;
-  font-weight: 600;
+  border: 1px solid #30363d;
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+input:focus {
+  outline: none;
+  border-color: #58a6ff;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #238636;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.button:hover {
-  background: #166534;
+button:hover {
+  background-color: #2ea043;
 }
 
-.signup-box {
-  margin-top: 20px;
+.footer-text {
+  margin-top: 16px;
   font-size: 14px;
 }
 
-.signup-box a {
-  color: #0969da;
+a {
+  color: #58a6ff;
   text-decoration: none;
 }
 
-.error {
-  margin-top: 10px;
-  color: #cf222e;
-  font-size: 14px;
+a:hover {
+  text-decoration: underline;
 }
 </style>
