@@ -13,3 +13,8 @@ Se dovessi avere tempo e disponibilità il risultato deve essere formattato seco
 <style scoped>
 </style>
 "
+
+Non è che riusciresti ad utilizzare il logo già fatto di Github?
+Inoltre, vorrei che il sito utilizzasse il tema scuro.
+Ho notato che delle volte i campi sbordano...potresti sistemarli?
+Grazie!
