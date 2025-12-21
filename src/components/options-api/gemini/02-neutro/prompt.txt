@@ -4,7 +4,6 @@ form: pagina di login di github.
 
 Non è richiesto che funzioni, si richiede che la pagina rispetti la struttura del sito.
 Il risultato è da formattare in un singolo file "Form.vue".
-Mantieniti dentro i bordi, non strafare.
 Non aggiungere niente di extra, tieniti fedele alla pagina.
 Il suddetto file contiene le seguenti righe di codice 
 "
@@ -17,3 +16,5 @@ Il suddetto file contiene le seguenti righe di codice
 <style scoped>
 </style>
 "
+Ulteriormente, cerca di sviluppare il sito con tema scuro e con un accurato avatar di github.
+Mi raccomando, mantieniti dentro i bordi.
